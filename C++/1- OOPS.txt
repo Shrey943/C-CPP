@@ -1,0 +1,211 @@
+Basic definitions : (Aur detail mai chaiye toh python mai ja ke dekho)
+
+# Classes - Basic template for creating objects
+# Objects – Basic run-time entities
+# Data Abstraction & Encapsulation – Wrapping data and functions into a single unit
+# Inheritance – Properties of one class can be inherited into others
+# Polymorphism – Ability to take more than one forms
+# Dynamic Binding – Code which will execute is not known until the program runs
+# Message Passing – message (Information) call format
+
+Attribute is data i.e. any kind of variable, may it be class variable or object variable most commonly known as instance variable.
+Methods are the functions in side class.
+# Well every variable in class is a instance variable, i havent found class variable yet. if you find, update this
+*** Found it, in c++ the concept of static variable is what we called class variable. They do not consume a different memory for every object
+    and are shared by every instance. since static variable have to get memory only once but on the time of class creation hence we need to 
+    declare this variable outside class also.(class ke ander bhi krna hi hoga)***
+    # are static acche se smjhna h toh yaha nai 1-STATIC.cpp dekho.
+
+**** IN PYTHON, all the methods are attribute also as all functions depend upon object but in c++ they are different********
+
+# Access Specifiers: C++ have 3 types of specifiers: (iske kaam krte h, python jaise bs naam ke nai h)
+  
+  A) Private : Can't be accessed outside its own class, neither by child class, nor by main function aur as a module toh sawal hi paida nai hota 
+
+  B) Protected : Can be accessed within class and child class only. Nor by main program obviously which is outside it neither as module.
+
+  C) Public : Koi bhi, kabhi bhi, kahi se bhi kr skta h access. Even when program is used as a module (when other program imports it) 
+              toh main ka toh sawal hi nai banta, obviously it can access.
+
+  ***By default, all the attributes and method are private if not defined.***
+
+  # classes are the extension of structure  as structure have following limitaions:
+    - can't have methods
+    - No security - all the members are public
+
+# Nesting of member function: One member function calling another member function is called nesting of member function.
+
+### Object memory allocation :
+
+# Since every instance variables are different for different instances/objects hence the consume different memorys. Means every object will use 
+  different memory for instance variables. BUT CLASS METHODS(FUNCTIONS) ONLY USE MEMORY ONCE. Since all the methods are same for every object 
+  hence will only take one memory space. 
+
+  # in python also, methods are stacked in stack memory while every attribute take a special place from heap memory.
+
+
+# Static Methods : Static methods/ functions are the function which we can access direcly through the class reference. we Do not need to create
+                   a object in order to call them.(You can not access normal methods without any object) 
+
+                ** Static methods can only access or modify other static variables or methods. YOU can NOT access any instance variable or method** 
+                # are static acche se smjhna h toh yaha nai 1-STATIC.cpp dekho.
+
+# Array of objects : When you need to create too many objects then we use  array of objects. see STATIC.cpp 
+
+# You can pass objects of classes as parameters and also can return an object of class. see in friend.cpp
+
+***Important***
+### Friend Funciton : when you want to give an external function(not a member of class)  the power to access private attributes and methods 
+                      inside it then you need to declare it as a friend in class. 
+      
+      Important points to keep in mind:
+
+     *1. Friend functions do not become a member of class hence you can't access them through any object as you do for member functions.
+      2. Not in the scope of class (voi jo uper likha h)
+     *3. Friend functions are just as a normal functions hence could be invoked without any object reference.
+      4. You can declare friend function anywhere(private, public or protected) 
+     *5. Friend function cannot access any member(may it be any variable or method) of class directly by there names. It needs a object to 
+         access any member.
+
+      see friend.cpp
+
+  # Friend Classes : Jb apan poori class(all members) ko kisi class ke private ka access dena chaahe toh poori class ko hi friend bana lete h.
+    **friend class aur class inheritance mai bahut anter h, class inheritance se ek prakaar se parent class ho extend krte  h iska mtlb 
+      variables and methods ko direct access kr skte h pr in friend ek object chaiye hi chaiye access krne.
+      Aur saath mai child class private ko access nai kr skti jo friend kr skti h pr object ki madad se hi bs.
+
+*** Dekho cpp and c dono ka jo compiler h na voi top to bottom run krta h code ko, aur usko tumpe bikul vishwas nai h, isiliye jb bhi tum koi
+    function ya class use krte ho jo uske neeche define h toh tumhe usse likhit mai dena hota h ki bhai neech h. issiliye apan function 
+    prototype (declaration) dete h.
+
+    Aise hi, class mai bhi agar koi function dusre class ko as a parameter leta h jo class usne neeche h toh apan FORWARD DECLARATION dete h.
+    see friend.cpp ***
+    Friend.cpp jarur dekh lena
+
+
+# Constructors : constructor is a special member method of class with same name as that of class name.
+                 It do not return any value(neither can return a value)
+                 It is invoked automatically when an object is created.
+                 It is basically used to initialize the variables.
+
+      ***** Constructor needs to be only created in public section *****
+
+      # The constructor which takes no arguments is called Default Constructor.
+      # The constructor which takes arguments/parameters is called Parameterised Constructor.
+      
+      Constructor can be invoked in 2 ways : 
+      A) Implicit call : Complex c(a,b);
+      B) Explicit call : Complex c = Complex(a,b);
+
+# Constructor Overloading : In a class, You can create as many constructors as you want (Obviously with different number of arguments)  
+                            Creating more than 1 constructor is called constructor overloading. 
+# Constructor with default arguments: As constructor is though a function only hence it can have default arguments(which makes constructor 
+                                      overloading of no use) 
+# Dynamic Initialization of constructor: Creating object on runtime and initializing different constructor based on user input is called 
+                                         dynamic initialization of constructor.
+    Ab jaise apan ne padha hi tha function overloading ke time, ki cpp ka compiler bahut smart h aur functions argument number same hone
+    pr bhi argument ke data type se sahi function choose kr leta h, VESE hi , constructor mai bhi vo constructor vo arguments leta h, 
+    uske data type ke hisaab se vo apna constructor select kr leta h.
+
+*** If you had created any constructor then you should also create a default constructor so program don't give any error if no arguments are given****
+
+// Important
+# Copy Constructor : It is a constructor that takes an object of that class as an arguments and copy all the variables from that object to
+                     Our new object.
+    
+  ***** Every class has a default copy constructor(obviously which is not visible). Hence you can still supply an object as an argument to any
+        class though you haven't created any copy constructor.*****
+
+# Difference between copy constructor and assignment operator:
+ 
+  Actually the question is what is the differnce between, 
+
+  A) Class obj2 = obj1;         // This would call the copy constructor while,
+
+      and 
+
+  B) Class obj2;                // This line already calls the default constructor for obj2;
+     obj2 = obj1;               // Now this line calls the assignment operator for obj2 taking obj1 as parameter; 
+    
+  As we already studied about the operator overloading in python, same in cpp also some default operators are already defined which we can
+  overload according to need. Like assignment operator, by default, take the object reference as parameter(obj2) assign all the variables
+  of that obj. to inputed object and returns the object reference.
+
+  The biggest difference is, you can only call the copy constructor once and that too only at the time of object creation. While you can call 
+  assignment operator as many times as you want and that too anytime.
+
+  Yes, by default it may seems they do same work(which actually they do), but if 2 functions do same work then that dosen't mean they are same.
+
+# Destructor : It is also a special member function of class with same name as that of class(just a ~ before name).
+               It frees up the memory of the object its been called for.
+               It is called automatically as soon as compiler comes out of the scope under which obj is created.
+               We can also call it as : obj.~className;
+               Its mainly used to free up the dynamic memory we allocated to any object.
+               It do not takes any arguments, neither returns any value 
+
+               Ab ye toh batane ki zarurat nai h na ki saari classes ke paas pehle se hi destructor hota h. call bhi kr skte h pr kuch hoga nai
+    
+    Note: calling destructors explicitly is a very bad habit. It may lead to program misbehave. 
+
+  *** In constructor and destructor, we dont need to define return type. Not even void***
+
+# Inheritance : Inheritance is nothing but the extension of base class. 
+      |
+      |- Base Class : Parent class is called as base class.(ye likh ke na aa jana), the class from which other classes are derived is called
+      |               base class.
+      |- Derived Class : The new class which is created with other class as base class is called derived class(child class). 
+      |
+      |- Advantage/ Application 
+      |          |
+      |          |- Impliments the DRY rule i.e. Do not repeat yourself
+      |          |- Saves time, effort.
+      |          |- SAvES money : Imagine you have a old class employee which is working perfectly for more than 5 years, means if you want to
+      |                           create a class programmer which needs all the members of employee also then you do not need to test about 
+      |                           methods of old class which would save money.(as human resource isn't used)
+      |
+      |__________________________________________________________________________________________________________________________
+          |                           |                              |                              |                            |
+    Single_Inheritance        Multiple_Inheritance        Hierarchical_Inheritance        Multilevel_Inheritance        Hybrid_Inheritance
+          |                           |                              |                              |                            |
+          |                           |                              |                              |                     1  Base Class
+1 Derived Cass from          1  Derived Cass from           2+ Derived Cass from           2+ Derived Cass from           2+ Derived Cass from                                                             
+1 Base Class                 2+ Base Class                  1  Base Class                  2+ Base Class                  1  Base Class
+          |___________________________|______________________________|______________________________|____________________________|
+                                                                     |
+                                                                     |
+                                       Ye Chodo, Types_of_Inheritance_Diagram.jpeg Dekho Abhi
+
+# Syntax :  class <derived_Class> : <visibility>  <base_Class>
+
+### Visibility : It is the access specifier for public members of base class in derived class.
+                 
+              #  If Visibility is private, then all the public members of base class will be private members of derived class.
+              #  And if visibility is public, then all the public members of base class will also be the public members of derived class.
+              
+              ***** By default, Visibility is private. *****
+  # Remember :  You can't access the private members of parent/base class in any way.(except making it a friend)
+
+# Class visibility specifier table : 
+  
+  # As you already know that protected access specifier is used to so that members can be derived but can't be used out of child, or parent class.
+  # But what happen when any derived class visibility is setted to protected ? see in below table:
+
+  # In below table, columns signify the visibility of derived class  while row sifnify the access specifier of members of base class
+  # Below table shows which type of member will the member of base class become if visibility of derived class is as follows
+
+                              Private                               Protected                               Public
+
+Private member              Not Derived                            Not Derived                            Not Derived
+
+Protected member              Private                               Protected                               Protected
+
+Public member                 Private                               Protected                               Public
+
+# Explain : 1st line shows that private members of base class are not at all derived, whatever the fuck visibility is
+            2nd line says, that if visibility is private, protected members of base class become private member of derived class
+                                                     and, public members also become private of derived class.
+                                                     and so on...............................
+
+# Are dekh, bs aisa h, jis type ki visibility, us type ke ban jayenge members. Bs public visibility mai protected member, protected hi 
+  banenge derived class ke.
+

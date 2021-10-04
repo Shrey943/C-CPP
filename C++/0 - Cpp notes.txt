@@ -1,0 +1,173 @@
+# iostream is a standard required library for important operations like input, output, etc. (io stands for input output)
+
+#c++reference - is website mai cpp se sb milega
+
+# Namespace : in c++, the new concept of namespace was introduced. Namespace are the blocks in which we can  initiate 
+              variables, methods(functins) and other things a kind of globally.(can be accessed through the name).
+              since cout,cin are initiated inside namespace std in iostream file, thats why we need to access cout 
+              as std::cout and also can be accessed by writting "using namespace std" globally.
+              see namespace.cpp
+
+# Isme boolean datatype hota h. C mai alag se import krna padta h.
+
+# Important basic difference between float and Double datatype.
+# Float : used to contain decimal digits.
+# Double : used to hold big decimal digits.
+
+
+# bool ko print karoge toh true ki jagah 1 aur false ki jagah 0 aayega
+
+### Max. limit of variable name = 255 ###
+
+# Extraction operator : >>   // get bytes from input stream. Kehte h na ki exrtact kr lo, vahi h ye
+# Insertion operator : <<   // sends bytes to ouput stream
+
+### Jis side arrow us side store hogi cheez. print krne cout taraf aur input lene varible taraf ###
+
+
+********* Including user defined header files in c and also in c++ (import program ya module keh skte) ***********
+   in c   : # include "filename.h"          //.h se hi file save krni hogi
+   in c++ : # include "filename"            // in c++ .h is not strictly necessary but could also end with .h
+
+   Note : # include <filename>  is also correct format
+          ***file must be present on current directory***
+   few tips : 
+            In c, don't initiate functions in header file. just write the programs(also its not necessary to include stdlib.h 
+            or stdio.h) see program for more info
+
+    Including Multiple Header Files: 
+        You can use various header files in a program. When a header file is included twice within a program, the compiler processes the contents of that header file twice. This leads to an error in the program. To eliminate this error, conditional preprocessor directives are used. 
+        Syntax: 
+         
+        
+        #ifndef HEADER_FILE_NAME
+        #define HEADER_FILE_NAME
+        
+           the entire header file
+        
+        #endif
+
+        This construct is called wrapper “#ifndef”. When the header is included again, the conditional will become false,
+        because HEADER_FILE_NAME is defined. The preprocessor will skip over the entire contents of the file and the 
+        compiler will not see it twice.
+
+# To use global variable infact having a local variable of same name "::" this operator is used. THIS OPERATOR IS CALLED 
+  SCOPE RESOLUTION OPERATOR.(::)
+  syntax - ::variable;
+
+# endl is just "\n"
+
+# Reference Vaiables : Bahut badhiya aur nai cheez h. ek variable ko dusre variable se Reference karane ko reference variable bolte h
+
+                      ***DONO MAI SE KISI KI BHI VALUE CHANGE KRNE PR DONO KI VALUE CHANGE HOTI H***
+
+                      basically dono same memory pe point krne lagte h(ye toh declare krte time hi obvious ho gaya tha)
+                      syntax : intro.cpp mai dekh
+
+# Ab usually 3.12 c++ aur shayad c  mai bhi double hota h. toh compiler ko batana padta h kai baaar ki float h ya double h ya long double h
+  toh apan seedha last mai f ya l likh ke bata skte h ki float h ya long. (size se hi pata laga skte tum) ex : 3.12l ya 3.12L and 3.12f ya 3.12F
+
+# Type casting toh jante hi ho. kisi or data type ko kisi aur mai cast krna(jb 2 int ko divide krte h toj float mai cast krna padta h)
+  ya kisi ko bhi in general, int ko float krna ya float ko int krna sb. kisi
+  2 tarah se hoti h ek jo c/ c++ dono mai : (int) 23.3 = 23            and
+                     ye c++ mai bs hota h : int(23.3) = 23
+
+# Manipulators : data display ko formatted (sundar) banane ka kaam krne waalo ko manipulators kehte h. Ek toh apna endl ho gaya.
+                 dusra, apan ek nayi header file include kr skte h. <iomanip> Isme ek mst se function hota h setw(value) apan value ki
+                 jagah ko bhi int value daal skte h aur fir output mai vo value jitni space reserve kr leta h. code ke results dekho.
+
+# Constants : jinki value program mai kahi bhi change nai kr skte. error dega
+              syntax : const var = 23; // Bs ab nai kr skte change
+ 
+# Precedence : Operators ki apni bajandaari hoti h jisko precedence kehte h. net mai dekh lena table. (*, /, % ki jyada fir +, - )
+# Associativity : jb precedence same ho toh associativity ke hisaab se solve hoti h equaltion.(mtlb left to right ya vice versa)
+
+# continue: breaks the current execution(for that perticular value) and let loop complete for other values.
+# pointers: pointers are the datatype which holds address of other data types.(ye sb chod, pointer bs ek container h jo 
+            dusre data types(actually) address) ko contain krta h)
+# pointer to pointer : jo pointer ke address ko store kare vo pointer of pointer bs.
+# Array : contigious block of memory OF SAME DATA TYPE
+# pointer aur array ke sambandh ko smjhne pointer_array.cpp dekh le
+
+### DIFFERENCE BETWEEN STRUCT, UNION, ENUM ### see the image saved
+
+Struct mai apan different types of data types ko access, use and change kr skte h. Jabki union mai apan ek baar mai bs ek
+datatype (jo usme present h)  ko hi access kr skte h. Size : struct mai sum of all datatype sizes hota h jbki union mai 
+size of biggest datatype hi poore ka size hota h.
+
+#Union better memory management krta h. UNion apan tb use krte h jb apan ko jo jo options h unme se koi ek bs use krna h 
+ Example: dekh le strcut_union_enum waale mai.
+
+Enumeration ka short form h enum. aur vahi kaam krta h jo python mai enumeration function krta h, ek list of things ko
+numeric contant dena(seedha bole toh index dena) ismai bs variable ka naam daalo ek list jaise, datatype se koi mtlb
+nai isko. ex:enum GeeksforGeeks { Geek1 Geek2, Geek3 };
+             enum GeeksforGeeks G1 = Geek1; 
+             agar aisa kare toh g1 ki value 0 rahegi, agar greek2 hota toh 1 rehti.
+ 
+
+# Typedef : typedef is a reserved keyword in the programming languages C and C++. It is used to create an additional name (alias) 
+          for another data type, but does not create a new type, except in the obscure case of a qualified typedef of an array type
+          where the typedef qualifiers are transferred to the array element type.
+
+          Ab seedhi bhaasa mai, dekho, dsa karte time tumhe baar baar ye likhna pada tha na, 'struct Stack stack'...
+          toh issi ko solve krne ka kaam krta h typedef, type def ka use krke tum seedha 'Stack stack' kr ke bana skte 
+          (Hn hn pata h jyada kuch fark nai aaya h pr baar baar struct toh nai likhna padega.)
+          
+          # Mast h yaar...ek hi cheez ko kai names se initiate kr skte.
+
+  **** IN CPP YOU CAN DIRECTLY USE TYPEDEF WITHOUT WRITTING TYPEDEF ****
+
+
+# Function Prototype : are jo apan main function ke pehle functions declare krte h na...usko function prototype kehte h.
+                       int function(int, int) bhi valid h.
+                       
+# Formal value : function(int a, int b) function waale variables ko formal value bolte h
+# Original value: jo value insert kare function mai usse original value bolte h. 
+
+# Call by reference variable : dekho, call by reference toh jante hi ho (using pointers) toh ye c++ call bt reference
+                               variable ka bhi option deta h(uper padha tha na, dono variables ka address same hota h.
+                               toh ek ko change krne mai dusra bhi hota h).
+                               It takes reference variables as arguments.(argument aut parameter mai antar toh pata hi hoga)
+                          // U can also return a value by reference from function.
+
+# Inline function : Ab dekho, agar tumhe koi chota sa kaam karna h, jaise square, cube, sum etc. toh inka code toh itta sa
+                    hi h. pr cpu ko pehle, original value ko formal mai copy karo, stack mai zagah banao, fir cal kr ke 
+                    return karo, fir stack ke function ko destroy karo fir yaha value reveive karo, batao. 
+                    Aur agar apan ko sum function baar baar chaiye toh toh cpu ki lag gayi na.
+
+                    Issi problem ke liye C++ mai inline hota h. ye function ko main memory mai hi load kr deta h. 
+                    jaise ki function ke andar ki lines vaha hi likhi ho jaha function call kia h. But kuch conditions h
+                    pehle toh compiler ki marzi h bhaiya ki usko function inline laayak lag ra ya nai. agar nai toh nai 
+                    banata vo inline. Inline function mai bahut km kaam hona chaiye jo fatak se ho jaaye,
+                    STATIC VARIABLES NAI BANANA INLINE MAI, aur loops bhi preferable nai rahenge.
+                    Syntax: syntax kya, bs function ke aage inline likh do
+
+# Static Vaiables : are badhiya cheez h re, ye variables na function complete hone ke baad bhi apni value dimaag mai store
+                    kr ke rakhte h(jabki vese fucntion complete hone mai uske ander ka sb destroy ho jata h pr ye nai) 
+                    Inki ko declaration line rehti h na, vo sirf ek baar hi call hoti h. uske baar se jb bhi function
+                    call karoge, ye line skip ho jayegi aur jo yaaddass mai h vo hi kaam aayegi. (Works on any function, even
+                    main function)
+        ** Static variable ko initize krne pr uski default value zero rehti h.** static acche se smjhne inline_and_static.cpp dekh lo
+           aur aur acche se oops mai smjhna h toh 1-STATIC.cpp dekh lo.
+           
+# Default arguments : are function ko pehle hi bata do ki agar koi argument mai aaya toh kya value leni h. ussi ko kehte h
+                      ye bhi uper waalo ke program mai dekh lena i.e. inline_&_static.c
+
+# Constant argument : agar apan fucntion ko strictly bolna chahte h ki galti se bhi iski value na change kr dena
+                      ye bhi uper h 
+
+# Function OverLoading : Bahut hi badhiya cheez h ye c++ ki.
+                         Function overloading matlb same name ke multiple functions, aur maze ki baat ye h ki koi error
+                         nai aayegi, compiler argument ke numbers ke hisaab se khud dhoodh lega ki kon se ki baat ho rai.
+                         
+                         mst h yaar, agar argument number same bhi ho toh bhi argument data type dekh ke ke leta h 
+                         must see : function_overloading.cpp
+
+                        # c nai krta ye allow
+
+# Strings : cpp have string. just needed to import it and done.
+  
+  some string functions:(syntax : string.function())
+  1. length() : to get length()
+  2. at(index) : get character at index
+
