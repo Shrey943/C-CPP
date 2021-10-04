@@ -197,9 +197,10 @@ Methods are the functions in side class.
 
 Private member              Not Derived                            Not Derived                            Not Derived
 
-Protected member              Private                               Protected                               Protected
+Protected member              Private                               Protected                              Protected
 
-Public member                 Private                               Protected                               Public
+Public member                 Private                               Protected                              Public
+
 
 # Explain : 1st line shows that private members of base class are not at all derived, whatever the fuck visibility is
             2nd line says, that if visibility is private, protected members of base class become private member of derived class
@@ -209,3 +210,42 @@ Public member                 Private                               Protected   
 # Are dekh, bs aisa h, jis type ki visibility, us type ke ban jayenge members. Bs public visibility mai protected member, protected hi 
   banenge derived class ke.
 
+# MultiLevel Inheritance : A--->B--->C
+
+# Multiple Inheritance : When derived class has more than 1 base class. 
+
+  Syntax : class derived : visibility_mode base1, visibility_mode base2,.....etc.
+
+# Ambiguty : In multiple inheritance when 2 or more base classes have any member of same name, then compiler throughs 
+             an ambiguty error. In this case we need to resolve the problem by overriding that member in derived class.
+             To run member of any specific class, we can call it using scope resolution operator.
+
+# Diamond shape problem : When A derives B & C(Hierarchical_Inheritance) and B & C derives D(multiple_inheritance) and whole thing is 
+                          Hybrid Inheritance.
+
+|                                                      A   --> Virtual Base class.
+|                                                  ____|____
+|                                                 |         |
+|                                                 B         C
+|                                                 |_________|
+|                                                      |
+|                                                      D
+|
+
+*** Now in diamond case, when D is derived then members of A will be derived double as B and C Both have the members of  A and this would create
+    an ambiguty error. Hence to overcome this problem, while deriving B and C from A, we use a keyword "virtual" So that when any child is derived 
+    from B and C then members wont be copied from both. ***
+
+    ***** In this case, Class A will be called virtual base class *****
+
+    ** We need to write virtual keyword in both A and B class **
+
+  ** Multiple inheritance mai function overloading waala concept nai h, jaise function overloading mai, agar func same name ka bhi ho 
+     pr different data types ke parameter leta ho,toh sahi waale ko compiler khud dhoodh leta tha pr agar do class mai same name ka function 
+     ho, chaahe different types ke parameter hi kyo na leta ho, vo error throw karega, apan ko abmbiguty resolve krni hi padegi. ** 
+
+
+  ** Diamond shape related : If any function of class A is overrided in any of the class B or C, then the new function will be derived to D
+                             rather then the function of class A.
+  
+  ** Being a virtual class, if we try to derive A also in D then it will give abmbiguty error. **
