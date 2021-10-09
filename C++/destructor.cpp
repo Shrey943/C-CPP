@@ -55,6 +55,9 @@ int main()
 
     std::cout << "p1 value : " << p1.get() << std::endl;
 
+    Point *p9 = new Point; // Dynamic Object
+    cout << "Dynamic Object : " << p9->get() << endl;
+
     return 0;
 }
 

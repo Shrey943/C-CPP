@@ -10,6 +10,7 @@ class Student // Just because of virtual keyword, now its an VIRTUAL BASE CLASS
     string name;
 
 public:
+    Student() { std::cout << "In  Student Constructor" << std::endl; }
     void setRollNo(int rollNum) { rollNo = rollNum; }
     int getRollNo() { return rollNo; }
 };
@@ -19,6 +20,7 @@ class Academic : public virtual Student // WE can write virtual before and after
     int phy, chem, maths; // 80 marks paper
 
 public:
+    Academic() { std::cout << "In  Academic Constructor" << std::endl; }
     void setMarks(int phy1, int chem1, int maths1) // Same name parameter gives wrong answer
     {
         phy = phy1;
@@ -42,6 +44,7 @@ class Extras : virtual public Student
     int attendece, projects, activity; //  5 marks for attendence and projects and 10 for activity
 
 public:
+    Extras() { std::cout << "In  Extras Constructor" << std::endl; }
     void setExtras(int attendece1, int projects1, int activity1)
     {
         attendece = attendece1;
@@ -62,8 +65,10 @@ class Result : public Academic, public Extras
 {
 
     float percentage;
+    // Result(){ std::cout << "In  Result Constructor" << std::endl; } // Can't set private
 
 public:
+    Result(){ std::cout << "In  Result Constructor" << std::endl; } 
     float getAcademicPercent()
     {
         // return getTotal()/(80*3);                            // Abiguty error

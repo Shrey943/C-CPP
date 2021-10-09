@@ -249,3 +249,30 @@ Public member                 Private                               Protected   
                              rather then the function of class A.
   
   ** Being a virtual class, if we try to derive A also in D then it will give abmbiguty error. **
+  
+# Constructor in Inheritance : Take following points in consideration ( A -> B will symboize, A as parent and B as child )
+
+For A -> B :
+- First constructor of A will be called then that of B.
+- Its not necessary for B to have a constructor when you want to call the default constructor of A.
+- For constructor with one or more parameter in base class, you must have the constructor in child class too. for this point in detail see
+  constructor_in_DC.cpp
+
+- ** To call any constructor of derived class , You must have a default constructor in base class. **
+
+- Its always best to have a default constructor in all the classes (both child and base class)
+
+- A->B->C  in multlilevel inheritance, first the constructor of A then that of B and then finally of C would be called. 
+  (You can not )
+
+  ***** Constructor Must Be Declared Publically in parent class To Inherit Them. You can set their visibility to private.*****
+
+- In multiple inheritance, the constructor of class which is written first would be executed first. like :
+  class C :  A , B // first the constructor of A then B then C
+
+- Constructor of virtual class is the formost, first its constructor than of other would be called. 
+  class C : A, virtual B // first the constructor of B then that of A
+
+  *** Constructor Needs to be declared publically in Child class to call it ****
+
+  Bhai ek baar constructor_in_DC.cpp dekh hi lo, gajab bawaal h.

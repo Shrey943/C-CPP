@@ -82,7 +82,8 @@ void Admission::new_admission()
 void Admission ::detail()
 {
 
-    cout << endl << "Student's admission number: " << admin_no << endl;
+    cout << endl
+         << "Student's admission number: " << admin_no << endl;
     cout << "Student's name: " << name << endl;
     cout << "Student's class: " << std << endl;
 }
