@@ -276,3 +276,17 @@ For A -> B :
   *** Constructor Needs to be declared publically in Child class to call it ****
 
   Bhai ek baar constructor_in_DC.cpp dekh hi lo, gajab bawaal h.
+
+** there are unique ways to initialize variables in constructor, see in initializationInConstructor.cpp **
+
+# Dymnamic initialization of Objects: We can create objects on dynamic memory(heap memory) so we can use them out of scope too, using new operator
+                                      (for detail about new, refer cpp notes).
+                                      We can create an array of objects too using class operator.
+
+                                      Refer dynamic_objects_arrayofObjects.cpp
+
+          ** To freeup the memory of object use delete operator. and to free up the array of objects use delete[] operator. **
+
+# "this" Keyword: "this" is the pointer to the object which called the function. Basically its the "self" of python.
+                  "this" uska POINTER of object jiski baat ho rai h. Mtlb jis object ne call kia h function ko.
+                ** We can use this to return the object jiski baat ho rai h **

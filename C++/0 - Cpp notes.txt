@@ -171,3 +171,31 @@ nai isko. ex:enum GeeksforGeeks { Geek1 Geek2, Geek3 };
   1. length() : to get length()
   2. at(index) : get character at index
 
+# Dynamic initialization of datatypes:
+  
+  1. new keyword is used to dynamically allocate memory and initialize the datatypes. It returns the address of datatype hence stored in 
+     pointer. It allocates the memory form heap memory.
+     syntax: 
+            int *ptr = new int(12) // sets value 12
+            int *ptr = new int[5]  // allocate 5 blocks of int memory(creates an dynamic array just as malloc)
+
+  2. delete keyword is used to dynamically deallocate and free up the memory.
+     syntax: 
+            delete ptr;
+            delete[] ptr; //to freeup array memory
+
+      ** Delete operator only takes POINTER. **
+
+# But...what is the need of new and delete when we have malloc and free ??? Well here it is :
+
+1. Calling constructor: new operator call's the constructor while malloc does not call the constructor of objects. 
+                        Also, you can initialize the value of any primitive datatype like int, float through new operator which is not 
+                        possible with malloc.   
+2. new is a operator while malloc is a function.
+3. new return exact data type while malloc return void *. (we need to cast it to required type)
+4. on failure malloc return null while new return error.
+5. Required size of memory is calculated by compiler in new while we need to provide it manually in malloc. 
+
+** Well you must try to use new, until you need realloc, as its not available in new **
+
+
