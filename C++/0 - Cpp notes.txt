@@ -199,3 +199,22 @@ nai isko. ex:enum GeeksforGeeks { Geek1 Geek2, Geek3 };
 ** Well you must try to use new, until you need realloc, as its not available in new **
 
 
+# Condition/ Ternary Operator: It is similar like if-else, Well it is that only bs chote mai. Ek line mai aapka if and else dono aa jaye.
+    Syntax:
+          variable = Expression1 ? Expression2 : Expression 3
+
+    ** Expression 1 h condition. Expression 2 mai jayega agar condition true hui else Expression 3 mai jayega agar condition false h. **
+    Example:
+            if(a > b)
+            {
+              return a;
+            }
+            else
+            {
+              return b;
+            }
+
+            Now same thing using ternary operator:
+            return (a > b) ? a : b;
+
+          

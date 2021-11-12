@@ -290,3 +290,49 @@ For A -> B :
 # "this" Keyword: "this" is the pointer to the object which called the function. Basically its the "self" of python.
                   "this" uska POINTER of object jiski baat ho rai h. Mtlb jis object ne call kia h function ko.
                 ** We can use this to return the object jiski baat ho rai h **
+
+
+# Polymorphism: (One name, multiple game)
+
+  # Poly means Many, morphism means forms. Hence Polymorphism means many forms.
+
+  - Toh dekho aisa h, ki polymorphism hote h 2 type ke:
+|          _____________________________________________|_________________________________________________
+|         |                                                                                               |
+|    Compile Time Polymorphism                                                                     Runtime Polymorphism 
+|         |                                                                                               |
+|  Function overloading padhe ho?                                                        Isme kya h ki bolo aadha code run ho gaya
+|  ya operator overloading ?                                                             aur bolo compiler ko pata tk nai ki agar 
+|  Inme kya hota h, agar apan kisi                                                       falane object ne is naam ka function call
+|  same naam ke functions, base and                                                      kia toh kya run karna h. Is type mai 
+|  derived class dono mai banaye toh                                                     functions object se bahut late bind hote 
+|  Ambiguty error aati h... Aur apan ko                                                  h isiliye isko LATE BINDING bhi bolte h.
+|  pehle se batana padta h ki bhaiya agar                                               
+|  is class ka object is naam ke member ko                                               Kya???? Example chaiye?
+|  call kare toh ye function run karna.                                                  Le re tu yaad rekhna 
+|                                      
+|  Isme kya hua? Compiler ne compile karte time                                          VIRTUAL FUNCTION,(For more see below)
+|  hi object ke saath function bind kr diya aur                                          Base class Pointer to derived class object
+|  final kr diya ki yahi call hoga.                                                      (For more see basePointDerived.cpp)
+|  Isko kehte h Compiletime Polymorphism.
+|  Aur pehle hi bind kr diya isiliye its also 
+|  known as EARLY BINDING.
+|
+|  Example: Funciton Overloading
+|           Operator Overloading 
+
+
+# Pointer to Derived Class: Dekho, base class ka agar apan koi pointer banaye toh usko derived class ka object bhi assign kr skte h. Akhir 
+                            derived class mai base ke bhi genes h na, isiliye base ka pointer bana kr apan derived class ke object ka address 
+                            store kr skte h. 
+
+                            Liken liken liken, agar apan ne aisa kia toh apan us pointer se sirf BASE class ke members access kr skte h.
+                            Mtlb...Maan lo base class aur derived class dono mai kisi same naam ka function h, toh derived class ke object se
+                            us function ko call krne pr derived class waala member hi call hona chaiye liken agar apan ne derived class ka object
+                            base ke pointer mai store kr rakha h toh base ka function call hoga. ALso tum derived class ka koi public member bhi
+                            directly access nai kr.
+
+        ** Ab dekho, jb apan ne derived class ka object banaya tb compiler ne bol diya ki bhaiya, agar ye koi member maange toh derived ka 
+           hi sbse pehle dena, but agar apan uska address kisi base class ke pointer ko de de toh runtime mai vo bolega, nai re baba, ab base 
+           class waala member do. Toh ye apna ho gaya RUNTIME POLYMORPHISM **
+    
