@@ -312,8 +312,8 @@ For A -> B :
 |  call kare toh ye function run karna.                                                  Le re tu yaad rekhna 
 |                                      
 |  Isme kya hua? Compiler ne compile karte time                                          VIRTUAL FUNCTION,(For more see below)
-|  hi object ke saath function bind kr diya aur                                          Base class Pointer to derived class object
-|  final kr diya ki yahi call hoga.                                                      (For more see basePointDerived.cpp)
+|  hi object ke saath function bind kr diya aur                                         
+|  final kr diya ki yahi call hoga.                                                     
 |  Isko kehte h Compiletime Polymorphism.
 |  Aur pehle hi bind kr diya isiliye its also 
 |  known as EARLY BINDING.
@@ -331,8 +331,125 @@ For A -> B :
                             us function ko call krne pr derived class waala member hi call hona chaiye liken agar apan ne derived class ka object
                             base ke pointer mai store kr rakha h toh base ka function call hoga. ALso tum derived class ka koi public member bhi
                             directly access nai kr.
+                            For more see basePointDerived.cpp 
 
         ** Ab dekho, jb apan ne derived class ka object banaya tb compiler ne bol diya ki bhaiya, agar ye koi member maange toh derived ka 
            hi sbse pehle dena, but agar apan uska address kisi base class ke pointer ko de de toh runtime mai vo bolega, nai re baba, ab base 
            class waala member do. Toh ye apna ho gaya RUNTIME POLYMORPHISM **
     
+
+# Virtual Function: Toh uper waala padha? Ab maan lo tumko base ka pointer hi use krna h(taaki sirf base ke members access ho) But tumko kuch 
+                    aise functions bhi chahiye jo tum call toh base ke pointer ke through karo but chahoge ki run derived class ke hi ho.
+                    Aur isi ko solve krta h virtual function.
+
+                    Virtual function kuch nai re, bus base pointer to derived class ke rules ko override karne ke kaam aata h. 
+                    Agar apan kisi base class ke function ke aage virtual keyword laga denge toh bhale hi usko base class ke pointer (jisme 
+                    derived class ka object stored h) se call kara jaaye toh compiler derived class ka function call karega.
+                    
+                    for more detail see: virtualFunction.cpp
+
+
+      *** Aur ye Decision Runtime mai liya jata h, kyoki ye decision bahut late lete h isiliye its the perfect example of late binding or 
+          runtime polymorphism *** 
+
+      # Few rules for virtual function: (VirtualFunction.cpp mai saare points detail mai milenge, marking ke saath)
+
+      1. They can not be static. (Ab tum hi soocho na, static member use hota h taaki bina object banaye hi apan usko call kr sake but bina object virtual function ka koi kaam hi nai)
+      2. They are accessed by object pointers. (try karenge bina object ke krne ki bhi, virtualFunction.cpp mai dekho) 
+      3. Virtual Functions can be friend functions also, Vo bhi friend function of even another class.
+      4. Base class mai virtual function sirf redirect karne bhi bana skte h, mtlb ho skta h vo empty ho, bs derived class waale function mai bhejne kaam aata ho.
+      5. If you had made any function of base class virtual, and derived class do not have a fucntion with that name then function of base class
+         would be called.
+
+
+*** Operator Overloading: Well Shrey, you already know operator overloading but here's an quick review, Well operator 
+                          overloading is just ki agar tum kisi class pe koi operator lagate ho toh kya hoga, I mean
+                          dekho vese toh + ka kaam h add krna but strings pe agar + lagate h toh vo dono strings ko 
+                          jod ke ek new string deta h. That's operator overloading.
+
+                          Han vo toh theek h but krna kaise h overload?
+
+                          Toh dekh bete function ka naam toh "operator" hi rahega, bs operator likhne ke baad vo operator 
+                          bana do jo load krna h. Neeche dekh re baba:
+
+                          <return_type> operator<operator_symbol> (<parameters>){}
+
+
+        # Assignment operator pehle se rehta h har class ke pass jo copy constructor ke jaisa behave krta h bus usko 
+          kitni bhi baar use kr skte h.
+
+          ## See operatorOverloading.cpp
+
+      **** Remember: You can't overload few operators such as :
+           .        (dot operator)
+           ::       (Scope resonator)
+           ?:       (condition operator)
+           sizeof() (sizeof operator) 
+
+// conversion operator: It is also type of operator overloading which is used to overload the type conversion 
+                        operators like float(), int(), etc. These functions are unary and donot take any 
+                        arguments.
+
+                        Well basically yaar dekho, koi obj h kisi class ka an agar uspe float function lagaya jaaye 
+                        toh error dega but overload krne se apan usse kuch bhi kara skte h.
+                        Aree operator overloading dekh na bhaiii...
+
+# Template: Acchaa ye chodo, aur ye batao ki agar tumko DS jaisi ek Vector(specific datatype array) class banani h 
+            jisme mst mst functions ho jaise append, pop, delete, size, max, length, etc. aur tumne int ke liye bana
+            bana bhi li but ab tumko same aise hi function ke saath ek aur Float vector bhi chaiye. Ya char type ke 
+            liye..Fir? Ab yaar kyoki class ke ander variables ke time datatype declare krna padta h and return types
+            bhi batana padta h toh tum soocho ge ki nayi class hi banaye aur kya.
+
+            But ye toh DRY(Do not repeat yourself) principal ko voilate krti h. Aur bhai apan alsi toh h hi.
+            Toh aise hi kisi aalsi ne template ka concept laaya.
+
+            AB jaise object ke liye template(skeleton) class hoti h vese hi class ke liye template, template hota h.
+
+            Aur kuch nai yaar bs jo bhi class banana usme jaha jaha datatype variable rakhna chahte ho jaha jaha template 
+            variable likh dena.
+
+            I know complex sound ho ra h but utna hi simple h, toh yaha kya kr raye ho, jaao template.cpp dekho.  
+
+            Syntax: 
+            template<class variableName, ......>
+
+            You can have as many variable datatype se you want. from 1 to infinity.
+
+            aur han above example se bole toh apni main class mai bs jaha jaha datatype likhna tha vaha variableName
+            likh dena.
+
+      # Achaa ek baat aur, templates generic Programming ka example,mtlb General class for many data types.
+
+      # Achaa aur ek aur bahut bada usage h template ka, maan lo constructor mai parameters ka data type fix nai
+        rakhna toh bhi bahut kaam ki cheez h, bs aise kr do,
+
+        ClassName<char> obj('d'); // Dekha, ab kuch bhhi use kr skte h python jaisa
+        ClassName<int> obj(34);
+
+# Default template: Achha templates mai bhi function types apan default value set kr skte h, like below:
+                    template <class T = int> // Ab agar kuch nai mila toh int use hoga
+
+# Function Template: Accha swap ka function banaya h kabhi ? han na toh usme parameter lete time toh likhna padta h
+                     ki a and b kis datatype ke honge, pr agar tum hr datatype ke liye alag function nai banana chahte 
+                     and jis bhi datatype ko chaaho use kr sako toh usme bhi template ka use kr skte ho.
+                     Hanji, same jaise class mai use krte the vese hi.
+
+          ** Function overloading ka behtar karika**
+
+   **** Tempplate kahi bhi use krne se pehle uske uper likhna padta h, header file jaisa nai ki ek baar likh diya 
+        aur ho gaya. Also, you can create as many templates as you want even with the same name. ****
+
+# Member function using template outside the class. See templates.cpp 
+
+# Function overloading using template: Agar 2 functions same name ke h jisme se ek int(ya koi bhi datatype) h and 
+                                       other waala template h(jisme koi bhi datatype) daal skte h toh us function ko
+                                       call krne pr agar int use kia h toh first waala call hoga pehle. Agar koi aur
+                                       datatype use kia h toh obviously 2nd waala. 
+                    # Because exact match has highest priority.
+
+
+    ** Seedhi baaat no bakwas, jb apan ko pakka na ho ki datatype kya hoga toh template hai na **
+
+
+|                       *****  STL - Standard Template Library  *****
+

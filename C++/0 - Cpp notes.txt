@@ -217,4 +217,37 @@ nai isko. ex:enum GeeksforGeeks { Geek1 Geek2, Geek3 };
             Now same thing using ternary operator:
             return (a > b) ? a : b;
 
-          
+
+# File Handling:-
+
+# File: File is the collection of characters stored in different pattern. Computer only understands binary language
+        So it fucking converts the file to binary. 
+        For example, if a is written then it will first convert it to decimal(ASCII re) i.e. 65 and then convert
+        decimal to binary mtlb 65 ka binary hua 01100001.
+
+  ** Now in a program you can input and ouput any data in 2 ways:
+     A) Console - iostream (using cin and cout)
+     B) File    - fstream (using ifstream and ofstream)
+
+# To work with files if c++  you need to include "fstream" header file. 
+   
+  3 main classes of fstream are:
+  1. fstreambase : Its the abstract base class(Parent class) of below 2 classes.
+  2. ofstream    : Derived from fstreambase class and is used for inputing in a file. WRITE
+  3. ifstream    : Derived from fstreambase class and is used to read the file.       READ
+
+  # There are basically 2 main ways to open a file:
+    
+    a) Using Constructor  : When creating obj of ifstream or ofstream.
+    b) Using open function: Its the member function of ifstream and outstream and used to open an file.
+
+  # close(): Close function is used to disconnect the file when completed our work. Its a very important function to
+             Free up the memory and also so that we can open that file in other format.
+             If we had opened a file using ifstream then to read data we need to first close the file and then open 
+             using ofstream.
+  # eof(): returns 1 when end of file is reached. 
+
+# getline(fileObj, string): Its a function from string header file, used to take a line as an input.
+                            We can use it even if we want to take a line as an input from cin also.
+
+      (insertion operator(>>) only takes one word as input and not any word after a space hence getline becomes imp.)

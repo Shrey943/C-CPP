@@ -3,34 +3,36 @@ using namespace std;
 
 class Base
 {
-    int test;
-public:
-    int baseVar;
-    Base()
-    {
-        baseVar = 0;
-        std::cout << "HEllo mf world, I'm speaking from BAse constructor." << std::endl;
-    }
-    void show()
-    {
-        std::cout << "Value of Base Variable: " << baseVar << std::endl;
-    }
+  
+    public:
+        int baseVar;
+        Base()
+        {
+            baseVar = 0;
+            std::cout << "HEllo mf world, I'm speaking from BAse constructor." << std::endl;
+        }
+        void show()
+        {
+            std::cout << "Value of Base Variable: " << baseVar << std::endl;
+        }
 };
+
 class Derived : public Base
 {
-public:
-    int derivedVar;
-    Derived()
-    {
-        baseVar = 0;
-        derivedVar = 1;
-        std::cout << "HEllo mf world, I'm speaking from DERIVED constructor." << std::endl;
-    }
-    void show()
-    {
-        std::cout << "Value of Derived Variable: " << derivedVar << std::endl;
-    }
+    public:
+        int derivedVar;
+        Derived()
+        {
+            baseVar = 0;
+            derivedVar = 1;
+            std::cout << "HEllo mf world, I'm speaking from DERIVED constructor." << std::endl;
+        }
+        void show()
+        {
+            std::cout << "Value of Derived Variable: " << derivedVar << std::endl;
+        }
 };
+
 int main()
 {
     Base baseObj;
