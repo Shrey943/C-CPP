@@ -453,3 +453,110 @@ For A -> B :
 
 |                       *****  STL - Standard Template Library  *****
 
+Pata h yaha tk pahuch gaye ho tum toh sooch raye hoge ki, who is Mark Zuck. Aur you can turn that true also.
+Aur yahi sooch kr pahuch gaye tum google kickstart mai, aur question aaya, tumko pata h isme binary search lagega, 
+and queue use karna padega, but bete jitni der mai tum ye dono likhoge na, utne mai aadha time toh ja chuka hoga.
+Issiliye you need something jo sirf bolne mai ye sb commonly used algo, DS apne liye ready rakhe aur yahi kaam krta 
+h humaara pyaara STL. 
+
+STL is the library of generic(general) classes and functions. Seedhi bhaasha mai ye sb ds/algo's general use ke liye
+avail h isme. Ye cheez bahut time bachati h and CODE REUSABILITY  ka perfect example h. STL har class and function 
+mai template ka use krti h taaki kisi bhi data type ke liye isko customize kr sake.
+
+# Components of STL:
+
+1) Containers : Stores data using template.
+2) Algorithms : Sorting, Searching algo's using template functions.
+3) Iterators  : Iterators are used to point at memory address of an STL container.
+                It is an OBJECT which points towards the data(element) in containers. It acts like pointer but is 
+                an object.
+
+# Containers: Containers yaar different tarah se data ko store karene ke tarike ko bolte h. Tum isko data structure 
+               jaisa samjh skte ho. Aur ye 2 tarah ke hote h. 
+
+    A) Sequence containers: linear data store karene waale. They are mainly used when we need random access of elements.
+                            
+                            ex: vector, list(linked list ko list bolte h isme), DEQueue(Double ended queue), etc.
+                                         
+    B) Associative containers: ek data dusre se kisi tarike se associate kare aise containers. They provide fast 
+                               search and delete operations. 
+
+                            ex: TREE, set/multiset, map/multimap, etc.
+    
+    C) Derived containers: Ye aise containers h ko real world problems se derived h jaise queue and stack. 
+                           ye dono real world mai bhi kaam aate h kai jagah.
+
+                           ex: stack, queue, priority queue(har element ke saath ek priority bhi set krte h aur
+                               jiski priority zyada hoti h pehle vo pop hota h, same h toh FIFO concept mai hi hoga.)
+
+# Algo and derived toh tum DSA course mai kiye hi ho.
+
+# Vector: Vector is just like array having sequencial data of same datatype BUT vectors can resize them according to
+          need. We can insert and delete any number of elements and it will do rests automatically.
+          We don't need  to specify a length of vector. 
+          
+          To use vector, include a header <vector>, then just create the object of class vector BUT with the template
+          as it's an template class and you can create vector of any datatype.
+
+        *** Use cplusplus.com to see all the containers available and their member functions, with their example.***
+          
+    ***** VECTORS DON'T HAVE INDEX! WE NEED TO USE ITERATOR FOR POINTING AN ELEMENT *****      
+
+        some common member functions: (for more see vectors.cpp)
+
+   **** IF WE USE ITERATOR TO INSERT AN ELEMENT n TIMES THEN AFTER IT, ITERATOR IS NO LONGER VALID. WE NEED TO
+        CREATE A NEW ONE FOR FURTHER USE *****
+
+  **** Iterator basically ek pointer jaisa hi h isiliye, isme bhi apan *(iter) use kr ke uske data to access kr skte
+       h(list and map mai toh bs aise hi access krna padta h) ****
+
+# List : List aur kuch nai apni linked list hi h re, simple si hi, vector jaise hi same naam ke functions h 
+         But, you can't access elements directly using [] or at operator, we need to access them through iterator.
+         using *(iter). 
+
+# Map : Ye bhi kuch nai bs python ki dictonary h, wahi key-value pair re, isko access krne bhi iterator chahiye and 
+        *(iter).first() se key and *(iter).second() se value access hogi.
+
+
+
+
+*** Important ***
+
+# transform : transform is a function available in STL which can help perform various operations on every element of 
+              array. You can use 2 types of operator on every element of array.
+
+        1. Unary operator: Jo single operand mai lag jaaye, jaise increment every element of array by any number.
+           
+           Syntax of using unary operator:
+                 transform(Iterator inputBegin, Iterator inputEnd, 
+                                Iterator OutputBegin, unary_operation) 
+                  Where, inputBegin  : iterator jaha se array ko start krna h(start index maan lo re)
+                         inputEnd    : iterator jaha tak array mai changes chaiye(end index maan lo re)
+                         OutputBegin : jis array mai output store krna h uska start iterator(index jaisa)
+                                       (Agar usi array mai changes store krna h toh firse inputBegin hi de do)
+                         unary_operation : function ya functor.
+        
+        2. Binary operation: Agar kisi 2 array ke elements mai koi operation chaiye, jaise create new array adding 
+                             elements of both array.
+
+            Syntax of using unary operator:
+
+            transform(Iterator inputBegin1, Iterator inputEnd1, 
+                            Iterator inputBegin2, Iterator OutputBegin, 
+                            binary_operation) 
+
+                  Where, inputBegin1  : iterator jaha se array1 ko start krna h(start index maan lo re)
+                         inputEnd1    : iterator jaha tak array1 mai changes chaiye(end index maan lo re)
+                         inputBegin2  : iterator jaha se array2 ko start krna h(start index maan lo re)
+                         OutputBegin : jis array mai output store krna h uska start iterator(index jaisa)
+                                       (Agar usi array mai changes store krna h toh firse inputBegin hi de do)
+                         binary_operation : function ya functor.
+                   ** inputEnd2 isliye nai maanga kyoki inputBegin1 and inputEnd1 mai jitne elements honge utne mai
+                      hi operation karega ye, agar km hue toh error and jyada hue toh kuch nai**
+
+      *** You can not paas any argument to the function used in transform hence if function is used, then function
+          must only take one argument and that too that of array type(vese template kr skte ho use) ***
+
+      **** But agar dena hi h argument toh function ki jagah functor use karo, aur neeche dekho ****
+
+# Functor (Function objects): Functor.cpp dekhle

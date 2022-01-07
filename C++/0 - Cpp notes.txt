@@ -251,3 +251,4 @@ nai isko. ex:enum GeeksforGeeks { Geek1 Geek2, Geek3 };
                             We can use it even if we want to take a line as an input from cin also.
 
       (insertion operator(>>) only takes one word as input and not any word after a space hence getline becomes imp.)
+
