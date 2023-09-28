@@ -168,7 +168,7 @@ Methods are the functions in side class.
     Single_Inheritance        Multiple_Inheritance        Hierarchical_Inheritance        Multilevel_Inheritance        Hybrid_Inheritance
           |                           |                              |                              |                            |
           |                           |                              |                              |                     1  Base Class
-1 Derived Cass from          1  Derived Cass from           2+ Derived Cass from           2+ Derived Cass from           2+ Derived Cass from                                                             
+1 Derived Class from         1  Derived Class from          2+ Derived Class from          2+ Derived Class from          2+ Derived Class from                                                             
 1 Base Class                 2+ Base Class                  1  Base Class                  2+ Base Class                  1  Base Class
           |___________________________|______________________________|______________________________|____________________________|
                                                                      |
@@ -451,7 +451,7 @@ For A -> B :
     ** Seedhi baaat no bakwas, jb apan ko pakka na ho ki datatype kya hoga toh template hai na **
 
 
-|                       *****  STL - Standard Template Library  *****
+|                                     *****  STL - Standard Template Library  *****
 
 Pata h yaha tk pahuch gaye ho tum toh sooch raye hoge ki, who is Mark Zuck. Aur you can turn that true also.
 Aur yahi sooch kr pahuch gaye tum google kickstart mai, aur question aaya, tumko pata h isme binary search lagega, 
@@ -492,7 +492,7 @@ mai template ka use krti h taaki kisi bhi data type ke liye isko customize kr sa
 # Algo and derived toh tum DSA course mai kiye hi ho.
 
 # Vector: Vector is just like array having sequencial data of same datatype BUT vectors can resize them according to
-          need. We can insert and delete any number of elements and it will do rests automatically.
+          need. We can insert and delete any number of elements and it will do rest automatically.
           We don't need  to specify a length of vector. 
           
           To use vector, include a header <vector>, then just create the object of class vector BUT with the template

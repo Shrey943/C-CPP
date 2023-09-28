@@ -21,7 +21,7 @@ union payment // Now since the user only gonna use one of the following mode, so
     int cash;
     int upi;
     // string coupon; // coupon code could be alpha numeric    //CPP not allowing string in union, check it
-}pMode;
+} pMode;
 
 enum week
 {

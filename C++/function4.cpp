@@ -11,7 +11,7 @@ int main() {
     cout << "Enter the number: ";
     cin >> num;
     cout << "\nCube of "<< num <<" is: " << inline_fun(num) << endl;
-    return 0;
+   
    return 0;
 }
 

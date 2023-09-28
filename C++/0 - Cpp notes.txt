@@ -36,10 +36,11 @@
             or stdio.h) see program for more info
 
     Including Multiple Header Files: 
-        You can use various header files in a program. When a header file is included twice within a program, the compiler processes the contents of that header file twice. This leads to an error in the program. To eliminate this error, conditional preprocessor directives are used. 
-        Syntax: 
-         
+        You can use various header files in a program. When a header file is included twice within a program, the compiler processes the contents of that header file twice. 
+        This leads to an error in the program. To eliminate this error, conditional preprocessor directives are used. 
         
+        Syntax: 
+               
         #ifndef HEADER_FILE_NAME
         #define HEADER_FILE_NAME
         
@@ -117,7 +118,7 @@ nai isko. ex:enum GeeksforGeeks { Geek1 Geek2, Geek3 };
 
   **** IN CPP YOU CAN DIRECTLY USE TYPEDEF WITHOUT WRITTING TYPEDEF ****
 
-
+ 
 # Function Prototype : are jo apan main function ke pehle functions declare krte h na...usko function prototype kehte h.
                        int function(int, int) bhi valid h.
                        

@@ -1,0 +1,154 @@
+Standard Template Library
+- Pre defined datastructures and algorithms
+
+Majorly contains 4 category of items:
+1. Containers (vectors, stack, list, dequeue, pairs, maps, sets, unordered_map, unordered_set, etc.)
+2. Iterators (begin(), end(), find())
+3. Algorithms (sort, upper_bound, lower_bound, min_ element, max element, accumulate, reverse)
+4. Functors(Classes that can be used as functons)
+
+# Containers:
+  Containers are predefined data structures that can be used to store data, according to system demand.
+  
+  Containers can also be classified of four groups:
+  
+  Sequential(vector, list, queue, stack, pair)
+  Unordered(unordered_map, unordered_set, unordered_multimap, unordered_multiset)
+  Ordered(maps, multimaps, sets, multisets)
+  Nested(different types of datastructures in other types of datastructures.)
+
+  // Basically all the datastructures have common functions like size, begin, end, maxsize, empty, clear, rbegin, rend(<-O(1))
+    (O(depends on ds->)) erase, find, emplace(to insert element in specific position{in-place} first iterator, then value)etc.
+
+  1. Vector: Continous sequece of data, random acess, auto resize.
+        Syntax:
+          #include <vector>
+          vector<datatype> variable_name;
+
+  2. Pair: Nothing but a data structure that stores a pair of same or different data types, used to show relation between 
+           values.
+           pair<datatype1, datatype2> p;
+  
+  3. map: Map is a datastructure in which we can store key - value pairs of data. In maps, all the keys are store in 
+          sorted order and hence order of insertion does not matter. But due to this, all the operations like insertion, 
+          find, erase require O(logn) time complexity, which is costly in comparision of unorderd map. 
+          Keys are unique and can not be repeated.
+          Since it do not store data in continuous blocks of memory, we require iterators for going through the map.
+          In maps, we can use any type of datatypes(int, string, vector, pair, maps, etc.) as key or value. It will compare first elements.
+          In case of string as key, it store the strings in lexographical order.
+          
+          *** Note, Basically, internally maps(ordered or unordered) is nothing but a pair, hence a pair is returned if a range loop is applied
+                   or if we use a iterator. ***
+
+          Syntax:
+              map<string, int> map;
+              map["key"] = 23; // logn
+              map["s"];        // logn (initialized with 0 value)
+              find("g");       // logn returns map.end() iterator on not finding, else return the iterator of the key
+              erase("key");    // logn
+
+          NOTE: The best insertion time is log n, it increases if a longer string is used as a key, as it needs to compare that string to all other
+                strings. Hence, net time complexity becomes: slogn, where s is the length of string. 
+    
+    4. unordered_map: Same as that of map, just differ in 3 aspects:
+              a) Internal Implementation: used hash table to insert elements, hence no specific order in which data is stored, any random
+                                          storage of data. But provided O(1) time complexity for all the operations like insertion, find, 
+                                          deletions, etc.
+              b) Time complexity: Since hash table is used, all the operations is done in constant time complexity, which is a avg. time 
+                                  complexity.
+              c) Datatypes: In unordered maps, we can not use any data type as key, as not all datatype's hash function is available to 
+                            convert them in hash table. Hence only all the premitive data types are available like, int, float, string, etc.
+                            Though we can use these datatypes as values.
+          Syntax:
+            unorderd_map<datatype1, datatype2> map;
+            map[23] = 23; // O(1)
+            // All the functions are same as map
+
+          NOTE: we try to use unordered map until and unless we need order.
+      
+      5. multimap/ unordermultimap: same as map and unordered_map respectively, just that we can have more than one same keys, i.e. keys are not unique.
+                                    but we can use vectors with map and unordered map to have the same thing.
+
+                    
+      6. Set: Kuch mt karo re, bs map se value waala part hata do toh set ban gaya. So set is nothing but a datastructure that stores the unique
+              values in a sorted order. For string, in lexographical order. Time complexities is same as that of map, O(logn).
+            
+            Syntax:
+              set<datastructure> s1;
+              s1.insert(534);
+              // can't access like s1[]      
+          
+          ***Set and map, both are implemented internally using red black tree data structure that allows the logn time complexity insertion and 
+             deletion + access***
+
+      7. unordered_set: ye bhi same as unordered_map, just not having a pair of key and value. Provides constant time complexity, uses hash table, 
+                        we can't use complex datastructures as datatypes.
+            Syntax:
+              unordered_set<datastructure> us;
+              us.insert(value);
+
+          Note: We can not modify values in a set, we can add new and remove old, but can't change the existing one/
+
+      8. multiset/unordered_multiset: Now multiset and unordered multiset is something that is used in competitive programming moreoften. 
+                                      It is a datastructure that allows us to store duplicate values in a set. So that's the purpose?
+                                      
+                                      Well, a multiset provides us with a benifit of logn time insertion, deletion, find, and access that too in
+                                      a sorted manner. We can use it over vector to decrease time complexity, if we do not need continuous memory
+                                      blocks. Since element is sorted, same values are stored in a Continous manner{not in continous block of 
+                                      memory, but itr++ will point to nxt same value, if present}Hence can be used as a priority queue.
+                                      
+                                      Similarly, a unordered_multiset provides us with a ds to store duplicate entries and remove them in constant 
+                                      time using hash values.
+              Syntax:
+                multimap<datatype> mm;
+                mm.insert(value1); 
+                // multisets can be used as a efficient priority queue.
+                unordered_multimap<datatype> umm;
+                umm.insert(value1);
+      
+    9. Stack: LIFO(Last In First Out) datatstructure that operates allows constant time complexity addition and removal.
+              Limited functions like push pop top empty size, as element is added to the top and removed from the top.
+
+              Syntax:
+                 stack<datatype> s;
+    
+    10. Queue: FIFO(First In First Out) datastructure that also provides the facility of constant time  insertion and deletion but from the front.
+               That is, elements are inserted to the back and is removed from the front. Limited methods like push, pop, front, back, empty, size.
+              
+              Syntax:
+                  queue<datatype> q;
+    
+    11. list: Using list we can implement doubly linked list, which allows us a slow traversal but a efficient way to alter data at any position.
+              Since it's a doubly linked list, hence we can add or remove element in constant time at front and end. Also if the position is
+              known, then we can add or remove element at any position in O(1) time.
+
+              Syntax:
+                  list<datatype> list;
+    
+    12. dequeue: Nothing but a queue where we can insert and delete elements from both the ends. Not from between. It gives the functionality of
+                 iterators that queue lacks. push_back, pop_back, push_front, pop_front, begin, rbegin, empty, front, back, etc.
+              
+              Syntax:
+                  dequeue<datatype> dq;
+
+    13. priority queue: priority queue toh pata hi h teko ki koi sequence don't matter, jiski priority jyada, vo pehle.(Same h toh LIFO)
+                        Sunne mai toh accha h, but what the heck is this priority, toh bhai priority kuch nai bs, jo bhi value h, usko hi priority 
+                        cosider krte h. Mtlb agar mai 3,5,2,5,1, 7,2,34 push karu aur ek ek kr ke pop karu toh 34, 7, 5,5,3,2,2,1 milega.
+                        (Desending order, as values hi priority darshaati h). But it dosen't mean ki ye store bhi aise hi krta h, internally ye 
+                        max heap mai store krta h, isiliye insertion and deletion ki time complexity O(logn) h.
+
+                        priority_queue<int> pq; // max heap(desending order)
+                        priority_queue<int> pq(arr, arr+n); // Can initialize using pointer/iterators of a array/vector too. 
+
+                        To store it in asending order(min heap), we can use:
+
+                        priority_queue<int, vector<int>, greater<int>> pq;  // The vector in argument is just the syntax and had to do nothing with initialization.
+                        // No, the vector written above has nothing to do with, how the queue is initialized.
+
+                        ** TO implement min heap(priority queue in ascending order), if above syntax is not yaad, just multiply -1 in each element
+                           and now can store as in normal max heap. for results, multiply -1 again. **
+                        
+                        // We can also use our own comparator function in place of greater<int>, to set priority accordingly.
+                        // Time complexity for push and pop is O(logn) respectively. While other operators like size, empty, top 
+                           
+                        

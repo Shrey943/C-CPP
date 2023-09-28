@@ -23,5 +23,7 @@ int main()
     std::cout << "Enter values for a b c d" << std::endl;
     cin >> a >> b >> c >> d;     //mst way h
     std::cout << a << ", " << b << ", " << c << ", " << d << std::endl;
+
+    cout<<float(5/2);
     return 0;
 }
